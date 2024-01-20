@@ -6,7 +6,7 @@ const cityTime = document.getElementById("city-time");
 const cityTemp = document.getElementById("city-temp");
 
 async function getData(cityName) {
-  const apiKey = "4d9fc3e4d18740bb80e92811242001"; // Replace with your actual API key
+  const apiKey = "4d9fc3e4d18740bb80e92811242001"; 
   const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${cityName}&aqi=yes`;
 
   const response = await fetch(url);
@@ -14,12 +14,6 @@ async function getData(cityName) {
 
   return data;
 }
-
-/* const promise = await fetch(
-    "http://api.weatherapi.com/v1/current.json?key=4d9fc3e4d18740bb80e92811242001&q=london&aqi=yes"
-  );
-  return await promise.json();
-}*/
 button.addEventListener("click", async () => {
   const value = input.value;
   const result = await getData(value);
@@ -27,6 +21,12 @@ button.addEventListener("click", async () => {
   cityTime.innerText = result.location.localtime;
   cityTemp.innerText = result.current.temp_c;
 });
+
+/* const promise = await fetch(
+    "http://api.weatherapi.com/v1/current.json?key=4d9fc3e4d18740bb80e92811242001&q=london&aqi=yes"
+  );
+  return await promise.json();
+}*/
 
 /*const API_KEY = "334eee7566740288f9b57b379659cf20";
 
